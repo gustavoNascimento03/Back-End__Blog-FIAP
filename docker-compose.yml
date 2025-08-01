@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Serviço da nossa aplicação Node.js
+  app:
+    # Constrói a imagem a partir do Dockerfile
+    build: .
+
+    ports:
+      # Mapeia a porta 3000 do PC => conteiner
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://db:27017/Back-End__Blog
+
+    depends_on:
+      # Faz com que o contêiner 'app' só inicie depois que o 'db' estiver pronto.
+      - db
+
+  # Serviço do banco de dados MongoDB
+  db:
+    # Usa a imagem oficial mais recente do MongoDB.
+    image: mongo:latest
+    ports:
+      # Mapeia a porta 27017 do PC => contêiner
+      - "27017:27017"
+    volumes:
+      # Garante que os dados do MongoDB sejam salvos em uma pasta no PC,
+      # para que não se percam quando o contêiner for parado.
+      - mongo-data:/data/db
+
+# Define os volumes nomeados para persistência de dados.
+volumes:
+  mongo-data:
