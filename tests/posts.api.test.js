@@ -1,12 +1,7 @@
-// tests/posts.api.test.js
-
 const request = require('supertest');
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
-
-// Precisamos importar o nosso app Express para que o Supertest possa interagir com ele
-// Vamos precisar ajustar o app.js para exportá-lo
-const app = require('../src/app'); // Supondo que app.js exporte o app
+const app = require('../src/app');
 const Post = require('../src/models/postModel');
 
 let mongoServer;

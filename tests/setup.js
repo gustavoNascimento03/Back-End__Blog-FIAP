@@ -1,4 +1,3 @@
-// tests/setup.js
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const mongoose = require('mongoose');
 
@@ -17,7 +16,7 @@ afterAll(async () => {
   await mongoServer.stop();
 });
 
-// Opcional: Limpa os dados entre cada teste para garantir isolamento
+// Limpa os dados entre cada teste para garantir isolamento
 afterEach(async () => {
   const collections = mongoose.connection.collections;
   for (const key in collections) {
