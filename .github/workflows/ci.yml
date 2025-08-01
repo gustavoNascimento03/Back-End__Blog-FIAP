@@ -1,0 +1,30 @@
+name: CI Pipeline
+
+on: [push]
+
+# Define os "trabalhos" que o workflow vai executar
+jobs:
+  # Nome do nosso job
+  build_and_test:
+    # Define o ambiente virtual onde o job vai rodar
+    runs-on: ubuntu-latest
+
+    # Define os passos a serem executados
+    steps:
+      # 1. Clona o repositório para dentro do ambiente virtual
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configura o ambiente Node.js na versão 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 3. Instala as dependências do projeto
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Executa o comando de teste definido no package.json
+      - name: Run tests
+        run: npm test
