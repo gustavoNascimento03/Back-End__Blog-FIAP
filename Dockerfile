@@ -18,4 +18,4 @@ COPY ./src ./src
 EXPOSE 3000
 
 # O comando que será executado quando o contêiner iniciar.
-CMD ["node", "src/app.js"]
+CMD ["node", "src/server.js"]
