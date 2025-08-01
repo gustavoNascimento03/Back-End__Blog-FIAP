@@ -13,13 +13,13 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  // A chance de o problema estar aqui é de 99%
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now // Esta linha é a mais importante
   }
 });
 
-// Adiciona um índice de texto p/ o title/content
 postSchema.index({ title: 'text', content: 'text' });
 
 const Post = mongoose.model('Post', postSchema);
