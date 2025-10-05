@@ -4,7 +4,7 @@ on: [push]
 
 # Define os "trabalhos" que o workflow vai executar
 jobs:
-  # Nome do nosso job
+  # Nome do job
   build_and_test:
     # Define o ambiente virtual onde o job vai rodar
     runs-on: ubuntu-latest
