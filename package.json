@@ -2,8 +2,9 @@
   "name": "back-end__blog",
   "version": "1.0.0",
   "description": "Projeto da fase 2 da FIAP, Back-End do Blog",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "jest"
   },
   "keywords": [],
